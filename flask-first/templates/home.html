@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.js"></script>
+	<script type="text/javascript" src="../js/p5.speech.js"></script>
+	<script type="text/javascript" src="../js/sketch.js"></script>
+</head>
+<body>
+    <h1>{{blog['name']}}</h1>
+    <p>Welcome to this blog</p>
+    <ul>
+        {% for post_id, post in blog['posts'].items() %}
+        <li><a href="{{ url_for('post', post_id=post_id)}}">{{post['title']}}</a><li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
