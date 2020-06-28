@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <title>Hello World!</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline';"
+    />
+  </head>
+  <body>
+    <div class="w3-bar w3-border w3-card-4 w3-large">
+      <a
+        href="./index.html"
+        class="w3-bar-item w3-button w3-mobile w3-text-blue"
+      >
+        <strong>Home</strong></a
+      >
+      <a
+        href="./adduser.html"
+        class="w3-bar-item w3-button w3-mobile w3-text-blue"
+      >
+        <strong>Add User</strong></a
+      >
+      <a
+        href="./form.html"
+        class="w3-bar-item w3-button w3-mobile w3-text-blue"
+      >
+        <strong>Default</strong></a
+      >
+      <a
+        href="./billing.html"
+        class="w3-bar-item w3-button w3-mobile w3-text-blue"
+      >
+        <strong>Billing</strong></a
+      >
+    </div>
+    <div class="w3-display-middle w3-card-4 w3-round-large">
+      <div class="w3-blue w3-container w3-margin-bottom w3-round-large">
+        <h3>Add User</h3>
+      </div>
+      <form class="my-form w3-container w3-margin-bottom" id="my-form">
+        <label class="w3-text-blue w3-margin-bottom w3-margin-bottom"
+          >Name</label
+        >
+        <input
+          type="text"
+          name="name"
+          id="name"
+          class="w3-margin-bottom w3-input"
+        />
+        <label class="w3-text-blue w3-margin-bottom w3-margin-bottom"
+          >House No.</label
+        >
+        <input
+          type="text"
+          name="house"
+          id="house"
+          class="w3-margin-bottom w3-input"
+        />
+        <input
+          type="submit"
+          value="Add"
+          class="w3-button w3-blue w3-round-large"
+        />
+      </form>
+    </div>
+    <script>
+      require("./adduser.js");
+    </script>
+  </body>
+</html>
