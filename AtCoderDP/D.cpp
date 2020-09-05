@@ -1,36 +1,53 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 using ll = long long;
 const int INF = 1e9 + 5;
+vector<vector<int>> v;
+vector<vector<ll>> dpp;
+
+ll dp(ll i, ll w)
+{
+    if (i == 0 || w == 0)
+    {
+        dpp[i][w] = 0;
+        return dpp[i][w];
+    }
+    if (dpp[i][w] != -1)
+        return dpp[i][w];
+    if (v[i - 1][0] <= w)
+    {
+        dpp[i][w] = max(v[i - 1][1] + dp(i - 1, w - v[i - 1][0]), dp(i - 1, w));
+        return dpp[i][w];
+    }
+    else
+    {
+        dpp[i][w] = dp(i - 1, w);
+        return dpp[i][w];
+    }
+}
+
 int main()
 {
-    int n, m;
-    cin >> n >> m;
-    int arr[n][2];
-    int dp[n + 1][m + 1] = {1000001};
-    for (int i = 0; i < n; ++i)
+    int n, w;
+    cin >> n >> w;
+    for (int i = 0; i < n; i++)
     {
-        cin >> arr[i][0] >> arr[i][1];
+        vector<int> k(2);
+        for (auto &a : k)
+            cin >> a;
+        v.push_back(k);
     }
-    for (int i = 0; i < n + 1; ++i)
+    for (int i = 0; i <= n; i++)
     {
-        for (int j = 0; j < m + 1; ++j)
+        vector<ll> z(w + 1);
+        for (int j = 0; j <= w; j++)
         {
-            if (i == 0 || j == 0)
-            {
-                dp[i][j] = 0;
-            }
-            if (arr[i - 1][0] <= j)
-            {
-                dp[i][j] = max(arr[i - 1][1] + dp[i - 1][j - arr[i - 1][0]], dp[i - 1][j]);
-            }
-            else
-            {
-                dp[i][j] = dp[i - 1][j];
-            }
+            z[j] = -1;
         }
+        dpp.push_back(z);
     }
-    cout << dp[n][m] << endl;
+    ll ans = dp(n, w);
+    cout << ans << "\n";
     return 0;
 }
