@@ -1,0 +1,33 @@
+.myForm {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.search {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.search input {
+  padding: 5px;
+}
+
+.search label {
+  padding: 5px;
+}
+
+.header > h1 {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+input {
+  padding: 5px;
+}
+
+button {
+  padding: 5px;
+}

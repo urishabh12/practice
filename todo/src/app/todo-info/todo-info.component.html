@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <input
+    type="checkbox"
+    name="isCompleted"
+    id="isCompleted"
+    [checked]="todo.isCompleted"
+    (click)="toggleTodo()"
+  />
+  <p>{{ todo.title }}</p>
+  <button (click)="delete()">X</button>
+</div>

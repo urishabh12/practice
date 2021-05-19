@@ -3,21 +3,39 @@
 
 using namespace std;
 using ll = long long;
+ll ans = 1e18;
 
 int main()
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+
     int n;
     cin >> n;
-    ll arr[n];
-    for (int i = 0; i < n; i++)
+    vector<ll> v(n);
+    for (auto &it : v)
     {
-        cin >> arr[i];
+        cin >> it;
     }
-    sort(arr, arr + n);
-    int i = 0, j = n - 1;
-    while (true)
+
+    for (ll msk = 0; msk < (1 << n); msk++)
     {
-        ll dif1, dif2, dif3;
-        dif1 = arr[i] + arr[i + 1];
+        ll l = 0, r = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if (msk & (1 << i))
+            {
+                l += v[i];
+            }
+            else
+            {
+                r += v[i];
+            }
+        }
+        ans = min(ans, abs(l - r));
     }
+
+    cout << ans << '\n';
+
+    return 0;
 }

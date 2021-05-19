@@ -1,0 +1,18 @@
+<div class="main">
+  <div class="header">
+    <h1>ToDo</h1>
+  </div>
+  <form class="myForm">
+    <input [(ngModel)]="todoTitle" type="text" id="title" name="title" />
+    <button (click)="addTodo()">Submit</button>
+  </form>
+  <div class="search">
+    <label for="filter">Search</label>
+    <input type="text" name="filter" [(ngModel)]="filterText" />
+  </div>
+  <ul>
+    <li *ngFor="let todo of todos | searchTask: filterText">
+      <todo-info [todo]="todo"></todo-info>
+    </li>
+  </ul>
+</div>
